@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>11</integer>
+	<key>logs</key>
+	<dict>
+		<key>334C1851-5CDF-4343-B961-83B675514DA5</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>334C1851-5CDF-4343-B961-83B675514DA5.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>4</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>HanoiGame.swiftpm</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Hanoi Game</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Hanoi Game</string>
+			<key>timeStartedRecording</key>
+			<real>767048474.18347204</real>
+			<key>timeStoppedRecording</key>
+			<real>767048487.77534199</real>
+			<key>title</key>
+			<string>Build Hanoi Game</string>
+			<key>uniqueIdentifier</key>
+			<string>334C1851-5CDF-4343-B961-83B675514DA5</string>
+		</dict>
+		<key>A90948B7-1F3C-4267-B9BB-39A9D0B5EF7A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A90948B7-1F3C-4267-B9BB-39A9D0B5EF7A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>4</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>HanoiGame.swiftpm</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Hanoi Game</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Hanoi Game</string>
+			<key>timeStartedRecording</key>
+			<real>767048396.60269904</real>
+			<key>timeStoppedRecording</key>
+			<real>767048413.70158195</real>
+			<key>title</key>
+			<string>Build Hanoi Game</string>
+			<key>uniqueIdentifier</key>
+			<string>A90948B7-1F3C-4267-B9BB-39A9D0B5EF7A</string>
+		</dict>
+		<key>CB1BE8BE-DDDC-45F9-8890-6E65BE063623</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>CB1BE8BE-DDDC-45F9-8890-6E65BE063623.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>4</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>HanoiGame.swiftpm</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Hanoi Game</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Hanoi Game</string>
+			<key>timeStartedRecording</key>
+			<real>767048625.92018998</real>
+			<key>timeStoppedRecording</key>
+			<real>767048627.11650097</real>
+			<key>title</key>
+			<string>Build Hanoi Game</string>
+			<key>uniqueIdentifier</key>
+			<string>CB1BE8BE-DDDC-45F9-8890-6E65BE063623</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

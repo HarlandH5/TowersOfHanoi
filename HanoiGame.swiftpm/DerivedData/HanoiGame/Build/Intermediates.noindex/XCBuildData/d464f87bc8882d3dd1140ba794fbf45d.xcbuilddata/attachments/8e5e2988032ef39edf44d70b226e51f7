@@ -1,0 +1,108 @@
+{
+  "" : {
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Hanoi Game-master.dia",
+    "emit-module-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Hanoi Game-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Hanoi Game-master-emit-module.dia",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Hanoi Game-master.swiftdeps"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/App/ContentView.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/App/Controller/Controller.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Controller.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Controller.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Controller.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Controller.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Controller.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Controller.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Controller.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/Controller~partial.swiftmodule"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/App/GestureRow.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GestureRow.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GestureRow.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GestureRow.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GestureRow.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GestureRow.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GestureRow.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GestureRow.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GestureRow~partial.swiftmodule"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/App/GesturesApp.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GesturesApp.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GesturesApp.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GesturesApp.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GesturesApp.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GesturesApp.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GesturesApp.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GesturesApp.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GesturesApp~partial.swiftmodule"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/App/Model/ShapeClass.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ShapeClass.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ShapeClass.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ShapeClass.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ShapeClass.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ShapeClass.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ShapeClass.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ShapeClass.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/ShapeClass~partial.swiftmodule"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/App/View/AboutView.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/AboutView.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/AboutView.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/AboutView.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/AboutView.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/AboutView.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/AboutView.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/AboutView.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/AboutView~partial.swiftmodule"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/App/View/GameView.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GameView.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GameView.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GameView.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GameView.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GameView.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GameView.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GameView.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GameView~partial.swiftmodule"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/App/View/RulesView.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/RulesView.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/RulesView.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/RulesView.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/RulesView.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/RulesView.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/RulesView.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/RulesView.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/RulesView~partial.swiftmodule"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "const-values" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/resource_bundle_accessor.swiftconstvalues",
+    "dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/resource_bundle_accessor.d",
+    "diagnostics" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/resource_bundle_accessor.dia",
+    "index-unit-output-path" : "/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "swift-dependencies" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/resource_bundle_accessor.swiftdeps",
+    "swiftmodule" : "/Users/harlandharrison/Downloads/HanoiGame/HanoiGame.swiftpm/DerivedData/HanoiGame/Build/Intermediates.noindex/Hanoi Game.build/Debug-maccatalyst/Hanoi Game.build/Objects-normal/arm64/resource_bundle_accessor~partial.swiftmodule"
+  }
+}
