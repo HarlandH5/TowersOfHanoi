@@ -7,86 +7,95 @@
 
 import Foundation
 
+var auto = false
+
 // Initialize game
-func gInit() -> Bool {
+func gInit(_ titles:TitleClass) -> Bool {
+    // Set this screen
+    gTitles = titles
     // Only init once
-    guard gvShapes.count < 4 else {return false}
-    coinCount = coinCount0
-    reset()    
+    guard gTowers.shapes.count < 4 else {return false}
+    gTowers.initData(coinCount0)
+    gTowers.setDragPermissions()
+    gReset()
     return true
 }
 
 func gReset() {
-    coinCount = coinCount0
-    reset()
-    gUpdateGameView()
+    guard !auto else {return}
+    gTowers.reset(coinCount:coinCount0)
+    updateGameView("")
 }
 
+let q:DispatchQueue = DispatchQueue.global(qos: .userInteractive)
+
 func gSolve() {
-    reset()
-    gUpdateGameView()
-
-    // DispatchQueue.main
-    let q:DispatchQueue = DispatchQueue.global(qos: .userInteractive)
-    
+    guard !auto else {return}
+    gTowers.reset(coinCount:coinCount)
     q.async {
-        move(count:coinCount,from:0, to:pinCount-1)
+        auto = true
+        updateGameView("")
+        gTowers.move(count:coinCount,from:0, to:pinCount-1)
+        updateGameView("")
+        auto = false
     }
-
 }
 
 func gAddCoin() {
-    coinCount = coinCount + 1
-    reset()
-    gUpdateGameView()
+    guard !auto else {return}
+    gTowers.reset(coinCount:coinCount+1)
+    updateGameView()
 }
-
-func gUpdateGameView() {
-    gtitleObj.title = ""
-    setDragPermission()
-    if gtitleObj.alert == "" {
-        gtitleObj.alert = "\(coinCount) pieces\n "
-    }
-    gtitleObj.title = "Towers of Hanoi"
-}
-
 
 func gHitTest() {
+    guard !auto else {return}
+    var alert = ""
     var movedInx = -1
     var hitInx = -1
     
-    for i in 0..<gvShapes.count {
-        let test = gvShapes[i]
-        if test.isDragging {
+    for i in 0..<gTowers.shapes.count {
+        if gTowers.shapes[i].isDragging {
             movedInx = i
-            hitInx = shapeHitTest(movedInx)
+            hitInx = gTowers.shapeHitTest(movedInx)
         }
     }
-    var moved:ShapeClass = gvShapes[movedInx]
-    var hit:ShapeClass = gvShapes[movedInx]
-    var canMove = false
-    gtitleObj.alert = ""
     if movedInx < 0 {return}
+    
+    let moved:ShapeClass = gTowers.shapes[movedInx]
+    var hit:ShapeClass = gTowers.shapes[movedInx]
+    var canMove = false
     if hitInx >= 0  { // Not touching ?
-        moved = gvShapes[movedInx]
-        hit = gvShapes[hitInx]
+        hit = gTowers.shapes[hitInx]
         if hit.shapeType == 1 {canMove = true}
-        // if hit.size < moved.size {canMove = false}
     }
     if canMove {
         // snap together
         moved.offset = hit.offset
-        setDragPermission()
+        gTowers.setDragPermissions()
         canMove = moved.canDrag
         if !canMove {
-            gtitleObj.alert =
-            "You cannot put a larger piece\n on top of a smaller piece."
+            alert =
+            "You cannot stack a larger coin \nwhere there is already a smaller coin."
         }
     }
     if !canMove {
         // move back
         moved.offset = moved.startOffset
     }
-    gUpdateGameView()
+    updateGameView(alert)
 }
 
+
+func updateGameView(_ newAlert:String? = nil) {
+  DispatchQueue.main.async {
+        gTitles.title = ""
+        var alert = gTitles.alert
+        if let newAlert = newAlert {
+          alert = newAlert
+        }
+        gTitles.setAlert("")
+        gTitles.title = "Towers of Hanoi"
+        gTitles.setAlert(alert)
+        gTowers.setDragPermissions()
+    }
+}

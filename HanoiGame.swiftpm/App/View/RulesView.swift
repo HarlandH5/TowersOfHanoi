@@ -13,9 +13,9 @@ struct RulesView: View {
             Text("")
             Text("The object is to move the stack of round coins to the bottom square.")
             Text("")
-            Text("You can only move the top coin on any stack.")
+            Text("You can only move the top coin on any stack, one coin at a time.")
             Text("")
-            Text("You cannot put a large coin on a smaller coin.")
+            Text("You cannot move a larger coin to stack with a smaller coin on top.")
             Text("")
             Text("You can only place the coins in stacks on the squares.")
             Text("")
@@ -24,7 +24,7 @@ struct RulesView: View {
             Text("")
             Text("Tap 'Reset' to start over.")
             Text("")
-            Text("Tap 'Solve' to see how it is done.")
+            Text("Tap 'Solve' to see how to do it.")
 
             Spacer()
         }

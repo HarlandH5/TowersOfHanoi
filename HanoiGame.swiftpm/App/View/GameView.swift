@@ -5,26 +5,29 @@ See the License.txt file for this sample’s licensing information.
 import SwiftUI
 
 struct GameView: View {
-    @ObservedObject var titleObj:TitleClass // = TitleClass()
+    @ObservedObject var titles:TitleClass
     
-    @AppStorage("HanoiTowersStorageLabel") var itemstor = "Hello World from Towers of Hnoi"
+    @AppStorage("HanoiTowersStorageLabel")
+    var itemstor = "Hello World from Towers of Hanoi"
     
-    var body: some View {
-    
+    var body: some View {    
         GeometryReader { geo in // frame Size
-            if gInit() {
-                let vert = (geo.size.width < geo.size.height)
-            }
+             if gInit(titles) {
+                 let _ = (geo.size.width < geo.size.height)
+             }
         }
             VStack (spacing:25) {
                 ZStack {
-                    ForEach(gvShapes){
-                        GameViewItem(shape: $0,vert:titleObj.vert)
-                    }
+                    // Draw shapes in order except for
+                    // coin being dragge is always last
+                    ForEach(gTowers.shapes){
+                            GameViewItem(shape: $0,vert:titles.vert)
+                     }
                 }
-                Text("\(titleObj.alert)")
-            }
-            .navigationTitle("\(titleObj.title)")
+                Text("\(titles.alert)")
+             }
+            
+            .navigationTitle("\(titles.title)")
             .toolbar {
                 ToolbarItem {
                     Button("Solve") {
@@ -44,31 +47,51 @@ struct GameView: View {
                 }
            }
     }
+        
 }
 
-struct CircleItem: View {
-    @StateObject var shape:ShapeClass
-   // private let itemSize: CGFloat = 100
-    var body: some View {
-        
-        VStack {
-            ZStack {
-                Circle()
-                    .foregroundColor(shape.color)
-                    .opacity(1.0)
-                Text(shape.label)
-           }
-                    .frame(width: shape.size, height: shape.size)
-                    .offset(shape.offset)
+
+
+
+struct SquareItem: View {
+        @StateObject var shape:ShapeClass
+        var body: some View {
+            
+            VStack {
+                ZStack {
+                    Text(shape.label)
+                    Rectangle()
+                        .foregroundColor(.gray)
+                        .opacity(0.5)
+                }
+                .frame(width: shape.size, height: shape.size)
+                .offset(shape.offset)
+            }
         }
     }
 
-}
+    
+struct CircleItem: View {
+        @StateObject var shape:ShapeClass
+        var body: some View {
+            
+            VStack {
+                ZStack {
+                    Circle()
+                        .foregroundColor(shape.color)
+                        .opacity(1.0)
+                    Text(shape.label)
+               }
+                        .frame(width: shape.size, height: shape.size)
+                        .offset(shape.offset)
+            }
+        }
+    }
 
+    
 struct GameViewItem: View {
     @StateObject var shape:ShapeClass
     @State var vert:Bool
-   // private let itemSize: CGFloat = 100
    
     var dragGesture: some Gesture {
        // DragGesture(coordinateSpace: .named("global"))
@@ -88,46 +111,34 @@ struct GameViewItem: View {
             }
     }
     var longPressGesture: some Gesture {
-        
         LongPressGesture()
             .onEnded { value in
                 print("LongPressGesture \(value)")
             }
     }
 
-    var body: some View {        
+    var body: some View {
         VStack {
             // Disk
-            if shape.shapeType == 0 && shape.canDrag {
-                CircleItem(shape: shape)
-                .gesture(dragGesture)
-                .gesture(longPressGesture)
-            }
-            if shape.shapeType == 0 && !shape.canDrag {
-                CircleItem(shape: shape)
-                .gesture(longPressGesture)
-            }
-            // Picture
-            if shape.shapeType == 2 {
-                Text(shape.label)
-                /*
-                ImageItemView(size:shape.size,url:shape.url)
-                    .frame(width: shape.size, height: shape.size)
-                    .offset(shape.offset)
-                    .gesture(dragGesture)
-                    .gesture(longPressGesture)
-                 */
+            if shape.shapeType == 0 {
+                if auto{
+                    CircleItem(shape: shape)
+                } else {
+                    if shape.canDrag {
+                        CircleItem(shape: shape)
+                        .gesture(dragGesture)
+                        .gesture(longPressGesture)
+
+                    } else {
+                        CircleItem(shape: shape)
+                        .gesture(longPressGesture)
+
+                    }
+                }
             }
             // Pin
             if shape.shapeType == 1 {
-                ZStack {
-                    Text(shape.label)
-                    Rectangle()
-                        .foregroundColor(.gray)
-                        .opacity(0.5)
-                }
-                .frame(width: shape.size, height: shape.size)
-                .offset(shape.offset)
+                SquareItem(shape: shape)
                 .gesture(longPressGesture)
              }
         }

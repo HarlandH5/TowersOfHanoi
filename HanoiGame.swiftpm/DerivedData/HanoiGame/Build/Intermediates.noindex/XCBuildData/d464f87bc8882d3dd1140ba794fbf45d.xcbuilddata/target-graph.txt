@@ -1,2 +1,0 @@
-Target dependency graph (1 target)
-Target 'Hanoi Game' in project 'Hanoi Game' (no dependencies)

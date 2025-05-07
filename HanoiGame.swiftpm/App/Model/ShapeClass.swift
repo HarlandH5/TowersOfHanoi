@@ -9,186 +9,207 @@ import Foundation
 import SwiftUI
 
 
-class ShapeClass : ObservableObject,Identifiable {
-    var ObservableID:String
-    @Published var index = 0
-    @Published var label = ""
-    @Published var shapeType = 0
-    @Published var size = 0.0
-    @Published var color:Color = .gray
-    @Published var url = "https://rickandmortyapi.com/api/character/avatar/824.jpeg"
-   @Published var offset = CGSize.zero
-   @Published var startOffset = CGSize.zero
-   @Published var canDrag = false
-   @Published var isDragging = false
-    init(shape:Int,size:Double) {
-        ObservableID = NSUUID().uuidString
-        self.shapeType = shape
-        self.size = size
-        self.isDragging = false
-    }
-}
-
-var gvShapes:[ShapeClass] = [
-    ShapeClass(shape:0,size:100)
- ]
-
-
-func pieceColor(_ num:Int) -> Color {
-    var c:Color = .red
-    switch num%7 {
-    case 0: c = .yellow
-    case 1: c = .green
-    case 2: c = .red
-    case 3: c = .teal
-    case 4: c = .brown
-    case 5: c = .cyan
-    default: c = .red
-    }
-    return c
-}
-
 let coinCount0 = 4
 let pinCount = 3
 var coinCount = coinCount0
 
-func reset() {
-    gvShapes = []
-    var size = 160.0
-    let step = size*1.25
-    let p0 = -500.0+size/2
-    for i in 0..<pinCount {
-        addShape(shape:1,size:size,p0+Double(i)*step)
-        let inx = gvShapes.count-1
-        gvShapes[inx].label = ""
+class ShapeClass : ObservableObject,Identifiable {
+    var ObservableID:String
+    var index = 0
+    var label = ""
+    var shapeType = 0
+    var size = 0.0
+    var color:Color = .gray
+    
+    @Published var offset = CGSize.zero
+    @Published var startOffset = CGSize.zero
+    @Published var canDrag = false
+    @Published var isDragging = false
+    
+    init(shape:Int,size:Double) {
+        ObservableID = NSUUID().uuidString
+        self.shapeType = shape
+        self.size = size
     }
-    for _ in 0..<coinCount {
-        size = size * 0.85
-        addShape(shape:0,size:size,p0)
-        let inx = gvShapes.count-1
-        gvShapes[inx].canDrag = false
-        gvShapes[inx].color = pieceColor(inx)
-        gvShapes[inx].label = "\(inx-2)"
-     }
-    gtitleObj.alert = ""
-    setDragPermission()
-}
 
-func findTopPiece(pin:Int) -> Int {
-    let offset = gvShapes[pin].offset
-    for i in 0..<gvShapes.count {
-        let shape = gvShapes[i]
-        if shape.offset == offset && shape.canDrag {
-            return i
+    func coinColor(_ num:Int) -> Color {
+        var c:Color = .red
+        switch num%7 {
+        case 1: c = .red
+        case 2: c = .blue
+        case 3: c = .green
+        case 4: c = .yellow
+        case 5: c = .cyan
+        case 6: c = .orange
+        default: c = .indigo
         }
+        return c
     }
-
-    return pin
 }
 
-func move(count:Int,from:Int,to:Int) {
-    if count == 0 {return}
-    if count == 1 {
-        let fromInx = findTopPiece(pin:from)
-        let toInx = findTopPiece(pin:to)
-        let fromShape = gvShapes[fromInx]
-        let toShape = gvShapes[toInx]
-        fromShape.offset.width = fromShape.offset.width + 100.0
-        Thread.sleep(forTimeInterval:0.1)
-        fromShape.offset = toShape.offset
-        fromShape.offset.width = fromShape.offset.width + 100.0
-        Thread.sleep(forTimeInterval:0.1)
-        fromShape.offset = toShape.offset
-        Thread.sleep(forTimeInterval:0.1)
-        setDragPermission()
-        print("move \(fromInx) \(toInx)")
-        return
+class TowersClass {
+    var shapes:[ShapeClass] = [
+        ShapeClass(shape:0,size:100)
+    ]
+    
+    init() {}
+    
+    func reset(coinCount:Int=coinCount0) {
+        initData(coinCount)
+        gTowers.setDragPermissions()
+   }
+    
+    func initData(_ count:Int) {
+        shapes = []
+        coinCount=count
+        var size = 160.0
+        let step = size*1.25
+        let p0 = -500.0+size/2
+        for i in 0..<pinCount {
+            addShape(shape:1,size:size,p0+Double(i)*step)
+            let inx = shapes.count-1
+            shapes[inx].label = ""
+        }
+        size = size * 0.95
+        for i in 0..<coinCount {
+            addShape(shape:0,size:size,p0)
+            size = size * 0.85
+            let inx = shapes.count-1
+            let coin = shapes[inx]
+            coin.color = coin.coinColor(coinCount-i)
+            coin.label = "\(coinCount-i)"
+        }
+        DispatchQueue.main.async {
+            gTitles.setAlert("")
+        }
+        gTowers.setDragPermissions()
     }
-    let spare = pinCount-from-to
-    move(count:count-1, from:from, to:spare)
-    move(count:1, from:from, to:to)
-    move(count:count-1, from:spare, to:to)
-}
-
-func addShape(shape:Int,size:Double,_ loc:Double = 0) {
-    gvShapes.append(ShapeClass(shape:shape,size:size))
-    let inx = gvShapes.count-1
-    gvShapes[inx].index = inx
-    gvShapes[inx].label = "\(inx)"
-    gvShapes[inx].offset = CGSize(width: 0,height: loc)
-    gvShapes[inx].startOffset = gvShapes[inx].offset
-}
-
-
-func setDragPermission() {
-    var pins:[String:Int] = [:]
-    guard gvShapes.count > 0 else {return}
-    var shape = gvShapes[0]
-    for i in 0..<gvShapes.count {
-        shape = gvShapes[i]
-        if shape.shapeType == 0 {
-            let key = "\(shape.offset)"
-            let smallest = pins[key]
-            if  smallest == nil {
-                pins[key] = i
-                shape.canDrag = true
-            } else {
-                var small = gvShapes[smallest!]
-                if  small.size > shape.size {
-                    small.canDrag = false
-                    shape.canDrag = true
+    
+    func addShape(shape:Int,size:Double,_ loc:Double = 0) {
+        shapes.append(ShapeClass(shape:shape,size:size))
+        let inx = shapes.count-1
+        shapes[inx].index = inx
+        shapes[inx].label = "\(inx)"
+        shapes[inx].offset = CGSize(width: 0,height: loc)
+        shapes[inx].startOffset = shapes[inx].offset
+    }
+    
+    func findTopPiece(pin:Int) -> Int {
+        setDragPermissions()
+        let offset = shapes[pin].offset
+        for i in 0..<shapes.count {
+            let shape = shapes[i]
+            if shape.offset == offset && shape.canDrag {
+                return i
+            }
+        }
+        return pin // no coins on pin
+    }
+    
+    func setDragPermissions() {
+        var pins:[String:Int] = [:]
+        guard shapes.count > 0 else {return}
+        var shape = shapes[0]
+        for i in 0..<shapes.count {
+            shape = shapes[i]
+            if shape.shapeType == 0 {
+                let key = "\(shape.offset)"
+                let smallest = pins[key]
+                if  smallest == nil {
                     pins[key] = i
+                    shape.canDrag = true
                 } else {
-                    small.canDrag = true
-                    shape.canDrag = false
+                    let small = shapes[smallest!]
+                    if  small.size > shape.size {
+                        small.canDrag = false
+                        shape.canDrag = true
+                        pins[key] = i
+                    } else {
+                        small.canDrag = true
+                        shape.canDrag = false
+                    }
                 }
             }
         }
     }
-}
-
-
-func shapeHitTest(_ movedInx:Int) -> Int  {
-    var moved = gvShapes[movedInx]
-    for i in 0..<gvShapes.count {
-        let test = gvShapes[i]
-        if i != movedInx {
-            let w1 = moved.size
-            let w2 = test.size
-            let h1 = moved.size
-            let h2 = test.size
-            var c1:CGPoint = CGPoint.zero
-            var c2:CGPoint = CGPoint.zero
-            c1.x = moved.offset.width
-            c1.y = moved.offset.height
-            c2.x = test.offset.width
-            c2.y = test.offset.height
-            var found = false
-            // Neither one is right.
-            // The only hit test used is circle to square
-            // if moved.shapeType == test.shapeType
-            if hitTestCenterCircles(c1: c1, r1: moved.size/2, c2: c2, r2: test.size/2) {
-                found = true
-            }
-            if hitTestCenterRects(c1:c1,w1:w1,h1:h1,c2:c2,w2:w2,h2:h2) {
-                // found = true
-            }
-            if found {
-                return i
+    
+    func setOffset(shape:ShapeClass,newOffset:CGSize) {
+        DispatchQueue.main.sync {
+            shape.offset = newOffset
+             setDragPermissions()
+        }
+        Thread.sleep(forTimeInterval:0.1)
+    }
+    
+    func animateMove(_ from:Int,_ to:Int) {
+        var fromShape:ShapeClass
+        var toShape:ShapeClass
+        var fromInx = 0
+        var toInx = 0
+        
+        DispatchQueue.main.sync {
+            fromInx = findTopPiece(pin:from)
+            toInx = findTopPiece(pin:to)
+        }
+        fromShape = shapes[fromInx]
+        toShape = shapes[toInx]
+        
+        var newOffset:CGSize;
+        let step = 85.0 * Double(1-2*((from+to)%2))
+        newOffset = fromShape.offset
+        newOffset.width += step
+        setOffset(shape:fromShape,newOffset:newOffset)
+        newOffset.width += step
+        setOffset(shape:fromShape,newOffset:newOffset)
+        newOffset = toShape.offset
+        newOffset.width += 2.0*step
+        setOffset(shape:fromShape,newOffset:newOffset)
+        newOffset.width -= step
+        setOffset(shape:fromShape,newOffset:newOffset)
+        newOffset = toShape.offset
+        setOffset(shape:fromShape,newOffset:newOffset)
+    }
+    
+    func move(count:Int,from:Int,to:Int) {
+        // Use 0,1 and pinCount-1
+        let spare = pinCount-from-to
+        if count == 1 {
+            animateMove(from,to)
+        }
+        if count < 2 {
+            return
+        }
+        move(count:count-1, from:from, to:spare)
+        move(count:1, from:from, to:to)
+        move(count:count-1, from:spare, to:to)
+    }
+    
+    
+    func shapeHitTest(_ movedInx:Int) -> Int  {
+        let moved = shapes[movedInx]
+        for i in 0..<shapes.count {
+            let test = shapes[i]
+            // only test coins on pins
+            if test.shapeType != moved.shapeType {
+                let r1 = moved.size/2.0
+                let r2 = test.size/2.0
+                var c1:CGPoint = CGPoint.zero
+                var c2:CGPoint = CGPoint.zero
+                c1.x = moved.offset.width
+                c1.y = moved.offset.height
+                c2.x = test.offset.width
+                c2.y = test.offset.height
+                var found = false
+                if hitTestCenterCircles(c1: c1, r1: r1, c2: c2, r2: r2) {
+                    found = true
+                }
+                if found {
+                    return i
+                }
             }
         }
+        return -1
     }
-    return -1
-}
-
-
-// Hit test two rectangles by widths & centers
-func hitTestCenterRects(c1:CGPoint,w1:Double,h1:Double,c2:CGPoint,w2:Double,h2:Double)-> Bool {
-    if c1.x-0.5*w1 > c2.x+0.5*w2 {return false}
-    if c2.x-0.5*w2 > c1.x+0.5*w1 {return false}
-    if c1.y-0.5*h1 > c2.y+0.5*h2 {return false}
-    if c2.y-0.5*h2 > c1.y+0.5*h1 {return false}
-    return true
 }
 
 // Hit test two circles by radii & centers

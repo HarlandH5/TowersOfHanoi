@@ -16,13 +16,14 @@ struct ContentView: View {
                     GestureRow(title: "Rules", description: "How to play Towers of Hanoi", systemImage: "book.closed.fill")
                 }
                 
-                NavigationLink(destination: GameView(titleObj:gtitleObj)) {
+                NavigationLink(destination:  GameView(titles:gTitles))
+                 {
                     GestureRow(title: "Play", description: "Towers of Hanoi.", systemImage: "arrow.up.and.down.and.arrow.left.and.right")
                 }
             }
             .navigationTitle("Towers of Hanoi")
         } detail: {
-            Text("Select a page")
+            Text("Make a Selection")
                 .foregroundColor(.secondary)
         }
     }
