@@ -1,10 +1,14 @@
-/*
-See the License.txt file for this sample’s licensing information.
-*/
+//
+//  SelectionRowView.swift
+//  HanoiGame
+//
+//  Created by Harland Harrison on 4/16/25.
+//
+
 
 import SwiftUI
 
-struct GestureRow: View {
+struct SelectionRowView: View {
     let title: String
     let description: String
     let systemImage: String
@@ -29,8 +33,8 @@ struct GestureRow: View {
     }
 }
 
-struct GestureRow_Previews: PreviewProvider {
+struct SelectionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        GestureRow(title: "View Title", description: "Description of view's function", systemImage: "arrow.up.and.down.and.arrow.left.and.right")
+        SelectionRowView(title: "View Title", description: "Description of view's function", systemImage: "arrow.up.and.down.and.arrow.left.and.right")
     }
 }

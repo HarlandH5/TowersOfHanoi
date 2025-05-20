@@ -11,7 +11,7 @@ import SwiftUI
 
 let coinCount0 = 4
 let pinCount = 3
-var coinCount = coinCount0
+
 
 class ShapeClass : ObservableObject,Identifiable {
     var ObservableID:String
@@ -47,24 +47,53 @@ class ShapeClass : ObservableObject,Identifiable {
     }
 }
 
-class TowersClass {
+class TowersClass:ObservableObject {
+    
+    @Published var alert = ""
+    @Published var vert = true
+
     var shapes:[ShapeClass] = [
         ShapeClass(shape:0,size:100)
     ]
     
+    var autoSolve = false
+    var coinCount = coinCount0
+    
     init() {}
+     
+    func setAlert(_ s : String?) {
+        // Update alert and guarantee a change
+        // for refreshing the screen
+        let CR = "\n"
+        if let s = s {
+            if s == "" {
+                setAlert(CR+"\(coinCount) pieces")
+            } else {
+                alert = ""
+                alert = s
+                if !alert.hasSuffix(CR) {
+                    setAlert(alert+CR)
+                }
+            }
+        } else {
+            setAlert(alert)
+        }
+    }
+
     
     func reset(coinCount:Int=coinCount0) {
         initData(coinCount)
-        gTowers.setDragPermissions()
-   }
+        setDragPermissions()
+        updateGameView(self,"")
+    }
     
     func initData(_ count:Int) {
         shapes = []
         coinCount=count
+        speed = 1.0
         var size = 160.0
         let step = size*1.25
-        let p0 = -500.0+size/2
+        let p0 = -460.0+size/2
         for i in 0..<pinCount {
             addShape(shape:1,size:size,p0+Double(i)*step)
             let inx = shapes.count-1
@@ -79,10 +108,6 @@ class TowersClass {
             coin.color = coin.coinColor(coinCount-i)
             coin.label = "\(coinCount-i)"
         }
-        DispatchQueue.main.async {
-            gTitles.setAlert("")
-        }
-        gTowers.setDragPermissions()
     }
     
     func addShape(shape:Int,size:Double,_ loc:Double = 0) {
@@ -132,13 +157,21 @@ class TowersClass {
             }
         }
     }
-    
+    var speed = 1.0
+    let minMsec = 2.0
+    let maxMsec = 100.0
     func setOffset(shape:ShapeClass,newOffset:CGSize) {
         DispatchQueue.main.sync {
-            shape.offset = newOffset
-             setDragPermissions()
+            withAnimation {
+                shape.offset = newOffset
+                setDragPermissions()
+            }
         }
-        Thread.sleep(forTimeInterval:0.1)
+        let time = maxMsec * speed
+        if time > minMsec {
+            speed *= 0.995
+        }
+        Thread.sleep(forTimeInterval:time/1000.0)
     }
     
     func animateMove(_ from:Int,_ to:Int) {
@@ -171,6 +204,7 @@ class TowersClass {
     }
     
     func move(count:Int,from:Int,to:Int) {
+        guard autoSolve else {return} // allow reset
         // Use 0,1 and pinCount-1
         let spare = pinCount-from-to
         if count == 1 {

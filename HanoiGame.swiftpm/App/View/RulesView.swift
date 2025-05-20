@@ -1,15 +1,17 @@
-
-/*
-See the License.txt file for this sample’s licensing information.
-*/
+//
+//  RulesView.swift
+//  HanoiGame
+//
+//  Created by Harland Harrison on 4/16/25.
+//
 
 import SwiftUI
 
 struct RulesView: View {
-    
+    @ObservedObject var titles:TitleClass
     var body: some View {
         VStack {
-            Text("How to play Towers of Hanoi")
+            Text("How to play \(titles.title)")
             Text("")
             Text("The object is to move the stack of round coins to the bottom square.")
             Text("")
@@ -35,6 +37,6 @@ struct RulesView: View {
 
 struct RulesView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutView()
+        RulesView(titles:gTitle)
     }
 }

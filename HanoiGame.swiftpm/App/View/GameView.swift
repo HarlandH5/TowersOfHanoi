@@ -1,48 +1,54 @@
-/*
-See the License.txt file for this sample’s licensing information.
-*/
+//
+//  GameView.swift
+//  HanoiGame
+//
+//  Created by Harland Harrison on 4/16/25.
+//
 
 import SwiftUI
 
+
 struct GameView: View {
     @ObservedObject var titles:TitleClass
+    @ObservedObject var towers:TowersClass
     
     @AppStorage("HanoiTowersStorageLabel")
     var itemstor = "Hello World from Towers of Hanoi"
     
-    var body: some View {    
+    var y : Bool = false
+    var body: some View {
         GeometryReader { geo in // frame Size
-             if gInit(titles) {
+            if gInit(titles,towers) {
                  let _ = (geo.size.width < geo.size.height)
              }
         }
             VStack (spacing:25) {
                 ZStack {
                     // Draw shapes in order except for
-                    // coin being dragge is always last
-                    ForEach(gTowers.shapes){
-                            GameViewItem(shape: $0,vert:titles.vert)
+                    // coin being dragged is always last
+                    ForEach(towers.shapes){
+                        GameViewItem(towers:towers,shape:$0,vert:towers.vert)
                      }
                 }
-                Text("\(titles.alert)")
+                Text("\(towers.alert)")
              }
             
             .navigationTitle("\(titles.title)")
             .toolbar {
                 ToolbarItem {
                     Button("Solve") {
-                        gSolve()
+                        gSolve(towers)
                         
-                    }
+                    }.disabled(towers.autoSolve)
                 }
                 ToolbarItem {
                     Button("Add Coin") {
-                        gAddCoin()
-                    }
+                        gAddCoin(towers)
+                    }.disabled(towers.autoSolve)
                 }
                 ToolbarItem {
                     Button("Reset") {
-                        gReset()
+                        gReset(towers)
                     }
                 }
            }
@@ -90,6 +96,7 @@ struct CircleItem: View {
 
     
 struct GameViewItem: View {
+    @StateObject var towers:TowersClass
     @StateObject var shape:ShapeClass
     @State var vert:Bool
    
@@ -97,8 +104,10 @@ struct GameViewItem: View {
        // DragGesture(coordinateSpace: .named("global"))
         DragGesture()
             .onEnded { value in
-                gHitTest()
-                shape.isDragging = false
+                withAnimation {
+                    gHitTest(towers)
+                    shape.isDragging = false
+                }
            }
             .onChanged { value in
                 if !shape.isDragging {
@@ -110,37 +119,27 @@ struct GameViewItem: View {
                     height: value.translation.height+shape.startOffset.height)
             }
     }
-    var longPressGesture: some Gesture {
-        LongPressGesture()
-            .onEnded { value in
-                print("LongPressGesture \(value)")
-            }
-    }
 
     var body: some View {
         VStack {
             // Disk
             if shape.shapeType == 0 {
-                if auto{
+                if towers.autoSolve{
                     CircleItem(shape: shape)
                 } else {
                     if shape.canDrag {
                         CircleItem(shape: shape)
                         .gesture(dragGesture)
-                        .gesture(longPressGesture)
 
                     } else {
                         CircleItem(shape: shape)
-                        .gesture(longPressGesture)
-
                     }
                 }
             }
             // Pin
             if shape.shapeType == 1 {
                 SquareItem(shape: shape)
-                .gesture(longPressGesture)
-             }
+            }
         }
     }
 }

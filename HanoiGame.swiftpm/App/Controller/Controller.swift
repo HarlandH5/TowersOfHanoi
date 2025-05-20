@@ -7,71 +7,58 @@
 
 import Foundation
 
-var auto = false
-
 // Initialize game
-func gInit(_ titles:TitleClass) -> Bool {
-    // Set this screen
-    gTitles = titles
+func gInit(_ titles:TitleClass, _ towers:TowersClass) -> Bool {
+    // Select this screen
+    gTitle = titles
     // Only init once
-    guard gTowers.shapes.count < 4 else {return false}
-    gTowers.initData(coinCount0)
-    gTowers.setDragPermissions()
-    gReset()
+    guard towers.shapes.count < 4 else {
+        return false}
+    gReset(towers)
     return true
 }
 
-func gReset() {
-    guard !auto else {return}
-    gTowers.reset(coinCount:coinCount0)
-    updateGameView("")
+func gReset(_ towers:TowersClass) {
+    guard !towers.autoSolve else {
+        towers.autoSolve = false
+        return}
+    towers.reset(coinCount:coinCount0)
 }
 
-let q:DispatchQueue = DispatchQueue.global(qos: .userInteractive)
-
-func gSolve() {
-    guard !auto else {return}
-    gTowers.reset(coinCount:coinCount)
-    q.async {
-        auto = true
-        updateGameView("")
-        gTowers.move(count:coinCount,from:0, to:pinCount-1)
-        updateGameView("")
-        auto = false
-    }
+func gAddCoin(_ towers:TowersClass) {
+    guard !towers.autoSolve else {return}
+    towers.reset(coinCount:towers.coinCount+1)
 }
 
-func gAddCoin() {
-    guard !auto else {return}
-    gTowers.reset(coinCount:coinCount+1)
-    updateGameView()
-}
-
-func gHitTest() {
-    guard !auto else {return}
+func gHitTest(_ towers:TowersClass) {
+    guard !towers.autoSolve else {return}
     var alert = ""
     var movedInx = -1
     var hitInx = -1
     
-    for i in 0..<gTowers.shapes.count {
-        if gTowers.shapes[i].isDragging {
+    for i in 0..<towers.shapes.count {
+        if towers.shapes[i].isDragging {
             movedInx = i
-            hitInx = gTowers.shapeHitTest(movedInx)
+            hitInx = towers.shapeHitTest(movedInx)
         }
     }
     if movedInx < 0 {return}
     
-    let moved:ShapeClass = gTowers.shapes[movedInx]
-    var hit:ShapeClass = gTowers.shapes[movedInx]
+    let moved:ShapeClass = towers.shapes[movedInx]
+    var hit:ShapeClass = towers.shapes[movedInx]
     var canMove = false
     if hitInx >= 0  { // Not touching ?
-        hit = gTowers.shapes[hitInx]
+        hit = towers.shapes[hitInx]
         if hit.shapeType == 1 {canMove = true}
+    }
+    if !canMove {
+        alert =
+        "You can only stack coins \non the three square pins."
     }
     if canMove {
         // snap together
         moved.offset = hit.offset
-        gTowers.setDragPermissions()
+        towers.setDragPermissions()
         canMove = moved.canDrag
         if !canMove {
             alert =
@@ -82,20 +69,26 @@ func gHitTest() {
         // move back
         moved.offset = moved.startOffset
     }
-    updateGameView(alert)
+    updateGameView(towers,alert)
 }
 
+let q:DispatchQueue = DispatchQueue.global(qos: .userInteractive)
 
-func updateGameView(_ newAlert:String? = nil) {
-  DispatchQueue.main.async {
-        gTitles.title = ""
-        var alert = gTitles.alert
-        if let newAlert = newAlert {
-          alert = newAlert
-        }
-        gTitles.setAlert("")
-        gTitles.title = "Towers of Hanoi"
-        gTitles.setAlert(alert)
-        gTowers.setDragPermissions()
+func gSolve(_ towers:TowersClass) {
+    guard !towers.autoSolve else {return}
+    towers.reset(coinCount:towers.coinCount)
+    q.async {
+        towers.autoSolve = true
+        updateGameView(towers,"")
+        towers.move(count:towers.coinCount,from:0, to:pinCount-1)
+        updateGameView(towers,"")
+        towers.autoSolve = false
     }
+}
+
+func updateGameView(_ towers:TowersClass, _ newAlert:String? = nil) {
+  DispatchQueue.main.async {
+      towers.setDragPermissions()
+      towers.setAlert(newAlert)
+   }
 }
